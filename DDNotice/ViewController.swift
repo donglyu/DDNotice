@@ -18,11 +18,13 @@ class ViewController: NSViewController, TimerDelegate {
     
     @IBOutlet weak var abortBtn: NSButton!
     @IBOutlet weak var startBtn: NSButton!
+
     
     let timer = DDTimer()
 
     var soundPlayer : AVAudioPlayer?
 
+    var isTimeTick = false
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -70,21 +72,38 @@ class ViewController: NSViewController, TimerDelegate {
         timer.abortSleepTimer()
         // update Label str.
         self.setLabelEditable(editable: true)
-        
+        startBtn.title = "开始"
     }
 
     @IBAction func startBtnClick(_ sender: Any) {
-        let hour = hourLabel.integerValue
-        let minute = minuteLabel.integerValue
-        let seconds = secondsLabel.integerValue
         
-        let timeInterval = ((hour*3600)+(minute*60)+seconds)
-        if timeInterval > 0 {
-            self.setLabelEditable(editable: false)
-            timer .runSleepTimer(seconds: NSNumber(value: timeInterval))
+        if isTimeTick {
+            startBtn.title = "继续"
+            timer.PauseTimer()
+            isTimeTick = false
+        }else{
+            
+            startBtn.title = "暂停"
+            
+            let hour = hourLabel.integerValue
+            let minute = minuteLabel.integerValue
+            let seconds = secondsLabel.integerValue
+            
+            let timeInterval = ((hour*3600)+(minute*60)+seconds)
+            if timeInterval > 0 {
+                self.setLabelEditable(editable: false)
+                timer .runSleepTimer(seconds: NSNumber(value: timeInterval))
+            }
+        
+            isTimeTick = true
         }
         
+        
+        
     }
+    
+    
+    
 }
 
 extension ViewController{
@@ -161,7 +180,7 @@ extension ViewController{
         
         print("show Alert!")
         let myPopUp:NSAlert = NSAlert()
-        myPopUp.messageText = "人就像弹簧，适时松一些未尝不好哦。"
+        myPopUp.messageText = "要做的事完成了吗？" //人就像弹簧，适时松一些未尝不好哦。
         let showMsg = UserDefaults.standard.string(forKey: UserDefaultMsgShow) ?? ""
     
         myPopUp.informativeText = showMsg
@@ -188,8 +207,8 @@ extension ViewController{
             return
         }
         
-        guard let audioFileUrl = Bundle.main.url(forResource: "ding",
-                                                 withExtension: "mp3") else {
+        guard let audioFileUrl = Bundle.main.url(forResource: "优美旋律结尾音效",
+                                                 withExtension: "wav") else {
                                                     return
         }
         

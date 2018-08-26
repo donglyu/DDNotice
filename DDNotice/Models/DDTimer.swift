@@ -33,11 +33,7 @@ class DDTimer: NSObject {
         if (sleepTimer?.isValid) != nil {
             sleepTimer?.invalidate()
         }
-        
-//        if let ti = sleepTimer {
-//            <#code#>
-//        }
-        
+    
         
         // schedule timer
         
@@ -94,6 +90,14 @@ class DDTimer: NSObject {
         activityTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(systemActivity), userInfo: nil, repeats: true)
         activityTimer?.tolerance = 1.0
         
+    }
+    
+    func PauseTimer(){
+        sleepTimer?.fireDate = NSDate.distantFuture
+    }
+    
+    func ContinueTimer(){
+        sleepTimer?.fireDate = NSDate() as Date
     }
     
     

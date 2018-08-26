@@ -2,8 +2,8 @@
 /* Class = "NSMenuItem"; title = "Customize Toolbar…"; ObjectID = "1UK-8n-QPP"; */
 "1UK-8n-QPP.title" = "Customize Toolbar…";
 
-/* Class = "NSMenuItem"; title = "DDNotice"; ObjectID = "1Xt-HY-uBw"; */
-"1Xt-HY-uBw.title" = "DDNotice";
+/* Class = "NSMenuItem"; title = "Slice"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "Slice";
 
 /* Class = "NSMenu"; title = "Find"; ObjectID = "1b7-l0-nxx"; */
 "1b7-l0-nxx.title" = "Find";
@@ -38,8 +38,8 @@
 /* Class = "NSMenuItem"; title = "Enter Full Screen"; ObjectID = "4J7-dP-txa"; */
 "4J7-dP-txa.title" = "Enter Full Screen";
 
-/* Class = "NSMenuItem"; title = "Quit DDNotice"; ObjectID = "4sb-4s-VLi"; */
-"4sb-4s-VLi.title" = "Quit DDNotice";
+/* Class = "NSMenuItem"; title = "Quit Slice"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit Slice";
 
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
 "5QF-Oa-p0T.title" = "Edit";
@@ -47,8 +47,8 @@
 /* Class = "NSMenuItem"; title = "Copy Style"; ObjectID = "5Vv-lz-BsD"; */
 "5Vv-lz-BsD.title" = "Copy Style";
 
-/* Class = "NSMenuItem"; title = "About DDNotice"; ObjectID = "5kV-Vb-QxS"; */
-"5kV-Vb-QxS.title" = "About DDNotice";
+/* Class = "NSMenuItem"; title = "About Slice"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About Slice";
 
 /* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
 "6dh-zS-Vam.title" = "Redo";
@@ -89,8 +89,8 @@
 /* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
 "F2S-fz-NVQ.title" = "Help";
 
-/* Class = "NSMenuItem"; title = "DDNotice Help"; ObjectID = "FKE-Sm-Kum"; */
-"FKE-Sm-Kum.title" = "DDNotice Help";
+/* Class = "NSMenuItem"; title = "Slice Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "Slice Help";
 
 /* Class = "NSMenuItem"; title = "Text"; ObjectID = "Fal-I4-PZk"; */
 "Fal-I4-PZk.title" = "Text";
@@ -173,8 +173,8 @@
 /* Class = "NSMenuItem"; title = "Baseline"; ObjectID = "OaQ-X3-Vso"; */
 "OaQ-X3-Vso.title" = "Baseline";
 
-/* Class = "NSMenuItem"; title = "Hide DDNotice"; ObjectID = "Olw-nP-bQN"; */
-"Olw-nP-bQN.title" = "Hide DDNotice";
+/* Class = "NSMenuItem"; title = "Hide Slice"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide Slice";
 
 /* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "OwM-mh-QMV"; */
 "OwM-mh-QMV.title" = "Find Previous";
@@ -204,10 +204,10 @@
 "S0p-oC-mLd.title" = "Jump to Selection";
 
 /* Class = "NSButtonCell"; title = "Abort"; ObjectID = "SI1-hL-lja"; */
-"SI1-hL-lja.title" = "Abort";
+"SI1-hL-lja.title" = "停止";
 
 /* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
-"Td7-aD-5lo.title" = "Window";
+"Td7-aD-5lo.title" = "设置";
 
 /* Class = "NSMenuItem"; title = "Capitalize"; ObjectID = "UEZ-Bs-lqG"; */
 "UEZ-Bs-lqG.title" = "Capitalize";
@@ -261,7 +261,7 @@
 "aTl-1u-JFS.title" = "Print…";
 
 /* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
-"aUF-d1-5bR.title" = "Window";
+"aUF-d1-5bR.title" = "设置";
 
 /* Class = "NSMenu"; title = "Font"; ObjectID = "aXa-aM-Jaq"; */
 "aXa-aM-Jaq.title" = "Font";
@@ -309,7 +309,7 @@
 "dfR-Hm-mlm.title" = "是否播放结束声音";
 
 /* Class = "NSButtonCell"; title = "Start"; ObjectID = "g4j-4b-Gda"; */
-"g4j-4b-Gda.title" = "Start";
+"g4j-4b-Gda.title" = "开始";
 
 /* Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL"; */
 "gVA-U4-sdL.title" = "Paste";
@@ -393,7 +393,7 @@
 "tlD-Oa-oAM.title" = "Kern";
 
 /* Class = "NSMenu"; title = "DDNotice"; ObjectID = "uQy-DD-JDr"; */
-"uQy-DD-JDr.title" = "DDNotice";
+"uQy-DD-JDr.title" = "Slice";
 
 /* Class = "NSMenuItem"; title = "Cut"; ObjectID = "uRl-iY-unG"; */
 "uRl-iY-unG.title" = "Cut";
@@ -423,7 +423,7 @@
 "x3v-GG-iWU.title" = "Copy";
 
 /* Class = "NSWindow"; title = "Window"; ObjectID = "xEX-Cd-VgR"; */
-"xEX-Cd-VgR.title" = "Window";
+"xEX-Cd-VgR.title" = "设置";
 
 /* Class = "NSMenuItem"; title = "Use All"; ObjectID = "xQD-1f-W4t"; */
 "xQD-1f-W4t.title" = "Use All";

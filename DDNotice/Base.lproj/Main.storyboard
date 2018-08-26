@@ -315,22 +315,22 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tA3-pb-hco">
-                                            <rect key="frame" x="-2" y="-3" width="87" height="32"/>
+                                            <rect key="frame" x="-2" y="-3" width="85" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Abort" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SI1-hL-lja">
+                                            <buttonCell key="cell" type="push" title="停止" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SI1-hL-lja">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" size="12" name="HelveticaNeue"/>
+                                                <font key="font" size="12" name="PingFangSC-Regular"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="abortBtnClick:" target="XfG-lQ-9wD" id="g1f-dp-1Qc"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lit-gZ-yOb">
-                                            <rect key="frame" x="75" y="-3" width="89" height="32"/>
+                                            <rect key="frame" x="74" y="-3" width="90" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g4j-4b-Gda">
+                                            <buttonCell key="cell" type="push" title="开始" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g4j-4b-Gda">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="cellTitle"/>
+                                                <font key="font" size="12" name=".PingFangSC-Regular"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="startBtnClick:" target="XfG-lQ-9wD" id="mBC-Gg-S9E"/>
@@ -357,7 +357,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-222" y="422"/>
+            <point key="canvasLocation" x="-222" y="421.5"/>
         </scene>
     </scenes>
 </document>
