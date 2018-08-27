@@ -35,9 +35,9 @@ class PrefsViewController: NSViewController {
         let showMsg = UserDefaults.standard.string(forKey: UserDefaultMsgShow)
         
         if showMsg != nil {
-            msgView.insertText(showMsg ?? "该休息下咯，看看远方啦、喝点水。", replacementRange: NSRange.init(location: 0, length: 0))
+            msgView.insertText(showMsg ?? "继续下一个项目咯！", replacementRange: NSRange.init(location: 0, length: 0))
         }else{
-            msgView.insertText("该休息下咯，看看远方哦、喝点水。", replacementRange: NSRange.init(location: 0, length: 0))
+            msgView.insertText("继续下一个项目咯！", replacementRange: NSRange.init(location: 0, length: 0))
             
         }
         

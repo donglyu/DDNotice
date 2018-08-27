@@ -22,7 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
         if let button = statusItem.button {
             button.image = NSImage(named: "settings") //  状态栏图标名称
-            button.action = Selector("printQuote:")
+            button.action = #selector(AppDelegate.ClickTopMenuBarItem(sender:))
+//                Selector("printQuote")
             
         }
         
@@ -44,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          return YES
          
          */
-        return true;
+        return false;
     }
     
     func applicationDidHide(_ notification: Notification) {
@@ -68,11 +69,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
-    func printQuote(sender:AnyObject){ // AnyObject.
-        let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
-        let quoteAuthor = "Mark Twain"
+    func ClickTopMenuBarItem(sender:AnyObject){ // AnyObject.
+//        let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
+//        let quoteAuthor = "Mark Twain"
+//
+//        print("\(quoteText) — \(quoteAuthor)")
         
-        print("\(quoteText) — \(quoteAuthor)")
+        
+        
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let mainWindowController = storyboard.instantiateController(withIdentifier: "TimeFiled") as! NSWindowController
+        
+        if let timeWindow = mainWindowController.window {
+            
+            // 2
+            let mainFieldCtrler = timeWindow.contentViewController as! ViewController
+            
+            // 3
+//            let application = NSApplication.shared()
+//            application.runModal(for: wordCountWindow)
+            
+//            wordCountWindow.close()
+            
+//            wordCountWindow .makeKey()
+//            timeWindow.close()
+//            timeWindow.orderOut(Any?.self) // 这个也可以。
+//            timeWindow.orderFront(Any?.self)
+            timeWindow.windowController?.close()
+            timeWindow.windowController?.showWindow(Any?.self)
+            
+//            wordCountViewController.make
+        }
     }
 
 }

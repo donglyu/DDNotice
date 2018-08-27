@@ -12,6 +12,9 @@ import NotificationCenter
 
 class ViewController: NSViewController, TimerDelegate {
 
+    @IBOutlet var TimingContainerView: NSView!
+    @IBOutlet weak var TimingNSBox: NSBox!
+    @IBOutlet weak var TimingFieldBoxContainerView: NSView!
     @IBOutlet weak var hourLabel: NSTextField!
     @IBOutlet weak var minuteLabel: NSTextField!
     @IBOutlet weak var secondsLabel: NSTextField!
@@ -43,20 +46,11 @@ class ViewController: NSViewController, TimerDelegate {
         secondsLabel.stringValue = "00"
         
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChanged), name: NSNotification.Name.NSTextDidChange , object: nil)
-        
         timer.delegate = self
         
-//        if let window? = self.view, let screen = window.screen {
-//            let offsetFromLeftOfScreen: CGFloat = 20
-//            let offsetFromTopOfScreen: CGFloat = 20
-//            let screenRect = screen.visibleFrame
-//            let newOriginY = CGRectGetMaxY(screenRect) - window.frame.height
-//                - offsetFromTopOfScreen
-//            window.setFrameOrigin(NSPoint(x: offsetFromLeftOfScreen, y: newOriginY))
-//        }
-        // 软件初始位置如何设置/
         
-        
+        self.view.layer?.borderColor = NSColor.red.cgColor
+        self.view.layer?.borderWidth = 0
     }
     
 
@@ -77,11 +71,13 @@ class ViewController: NSViewController, TimerDelegate {
 
     @IBAction func startBtnClick(_ sender: Any) {
         
-        if isTimeTick {
+        if isTimeTick { // 点击暂停按钮
             startBtn.title = "继续"
             timer.PauseTimer()
             isTimeTick = false
-        }else{
+            
+            self.view.layer?.borderWidth = 2
+        }else{ // 点击开始
             
             startBtn.title = "暂停"
             
@@ -96,6 +92,9 @@ class ViewController: NSViewController, TimerDelegate {
             }
         
             isTimeTick = true
+            
+            
+            self.view.layer?.borderWidth = 0
         }
         
         
@@ -107,18 +106,22 @@ class ViewController: NSViewController, TimerDelegate {
 }
 
 extension ViewController{
+//    override func controlTextDidBeginEditing(_ obj: Notification) {
+//        TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.clear.cgColor
+//    }
+    
     func textDidChanged(textfield:NSTextField)  {
-        if hourLabel.stringValue.characters.count > 2 {
+        if hourLabel.stringValue.count > 2 {
             let index = hourLabel.stringValue.index(hourLabel.stringValue.startIndex, offsetBy: 2)
             let value = hourLabel.stringValue.substring(to: index )
             hourLabel.stringValue = value;
         }
-        if minuteLabel.stringValue.characters.count > 2 {
+        if minuteLabel.stringValue.count > 2 {
             let index = minuteLabel.stringValue.index(minuteLabel.stringValue.startIndex, offsetBy: 2)
             let value = minuteLabel.stringValue.substring(to: index)
             minuteLabel.stringValue  = value
         }
-        if secondsLabel.stringValue.characters.count > 2 {
+        if secondsLabel.stringValue.count > 2 {
             let index = secondsLabel.stringValue.index(secondsLabel.stringValue.startIndex, offsetBy: 2)
             let value = secondsLabel.stringValue.substring(to: index)
             secondsLabel.stringValue  = value
@@ -160,7 +163,13 @@ extension ViewController{
     
     func TimerEndAction() {
         setLabelEditable(editable: true)
+        self.view.wantsLayer = true
+
         
+        TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.red.cgColor
+        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+            self.TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.black.cgColor
+        }
         
         let isPlaySounds = UserDefaults.standard.integer(forKey:UserDefaultIsPlaySounds)
     
@@ -176,7 +185,8 @@ extension ViewController{
 //        NSNotification.init
 //        // Notification End
         
-
+        startBtn.title = "开始"
+        isTimeTick = false
         
         print("show Alert!")
         let myPopUp:NSAlert = NSAlert()
@@ -186,11 +196,10 @@ extension ViewController{
         myPopUp.informativeText = showMsg
         
             //
-        myPopUp.alertStyle = NSAlertStyle.informational
+        myPopUp.alertStyle = NSAlertStyle.critical
         myPopUp.addButton(withTitle: "OK")
         //        myPopUp.addButton(withTitle: "Cancel")
         myPopUp.runModal()
-        
         
 
         
