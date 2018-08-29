@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DDNotice/AppDelegate.swift"
-            timestampString = "557072920.415082"
+            timestampString = "557250976.696119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "ClickTopMenuBarItem(sender:)"
             landmarkType = "7">
          </BreakpointContent>

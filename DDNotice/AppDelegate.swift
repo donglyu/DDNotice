@@ -62,10 +62,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationWillBecomeActive(_ notification: Notification) {
         print("applicationBecomeActive")
+        
+        NotificationCenter.default.post(name: NSNotification.Name("AppBecomeActive"), object: nil)
+        
+        
     }
     
     func applicationDidResignActive(_ notification: Notification) {
         print("applicationDidResignActive")
+        
+        NotificationCenter.default.post(name: NSNotification.Name("AppResignActive"), object: nil)
     }
     
     

@@ -28,6 +28,7 @@ class ViewController: NSViewController, TimerDelegate {
     var soundPlayer : AVAudioPlayer?
 
     var isTimeTick = false
+    var shadow: NSShadow?
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -45,7 +46,21 @@ class ViewController: NSViewController, TimerDelegate {
         minuteLabel.stringValue = "00"
         secondsLabel.stringValue = "00"
         
+        shadow = NSShadow.init()
+        shadow?.shadowColor = NSColor.clear
+        shadow?.shadowBlurRadius = 7
+        
+        hourLabel.wantsLayer = true
+        hourLabel.shadow = shadow
+        minuteLabel.shadow = shadow;
+        minuteLabel.wantsLayer = true
+        secondsLabel.shadow = shadow;
+        secondsLabel.wantsLayer = true
+        
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChanged), name: NSNotification.Name.NSTextDidChange , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appBecomeActive), name: NSNotification.Name("AppBecomeActive"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appResignActive), name: NSNotification.Name("AppResignActive"), object: nil)
+        
         timer.delegate = self
         
         
@@ -67,6 +82,8 @@ class ViewController: NSViewController, TimerDelegate {
         // update Label str.
         self.setLabelEditable(editable: true)
         startBtn.title = "开始"
+        
+        self.view.layer?.borderWidth = 0
     }
 
     @IBAction func startBtnClick(_ sender: Any) {
@@ -75,9 +92,11 @@ class ViewController: NSViewController, TimerDelegate {
             startBtn.title = "继续"
             timer.PauseTimer()
             isTimeTick = false
-            
+            self.ChangeTextFiledShadowColor(color: NSColor.yellow)
             self.view.layer?.borderWidth = 2
         }else{ // 点击开始
+
+            self.ChangeTextFiledShadowColor(color: NSColor.green)
             
             startBtn.title = "暂停"
             
@@ -100,8 +119,7 @@ class ViewController: NSViewController, TimerDelegate {
         
         
     }
-    
-    
+
     
 }
 
@@ -109,7 +127,7 @@ extension ViewController{
 //    override func controlTextDidBeginEditing(_ obj: Notification) {
 //        TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.clear.cgColor
 //    }
-    
+    // MARK: Private
     func textDidChanged(textfield:NSTextField)  {
         if hourLabel.stringValue.count > 2 {
             let index = hourLabel.stringValue.index(hourLabel.stringValue.startIndex, offsetBy: 2)
@@ -145,6 +163,33 @@ extension ViewController{
         
     }
     
+    func ChangeTextFiledShadowColor(color:NSColor){
+        self.shadow?.shadowColor = color
+        self.hourLabel.shadow = self.shadow
+        self.minuteLabel.shadow = self.shadow
+        self.secondsLabel.shadow = self.shadow
+    }
+    
+    // MARK: Noti
+    
+    func appBecomeActive(){
+        self.TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.black.cgColor
+        
+        if isTimeTick{
+            
+        }else{
+            self.ChangeTextFiledShadowColor(color: NSColor.yellow)
+        }
+    }
+    
+    func appResignActive(){
+        
+        if !isTimeTick {
+            self.ChangeTextFiledShadowColor(color: NSColor.yellow)
+        }
+        
+    }
+    
     // MARK: Delegate
     func updateRemainingTime(remaining: CFAbsoluteTime) {
         let hours = Int.init(remaining/3600)
@@ -159,6 +204,9 @@ extension ViewController{
         minuteLabel.stringValue = String.init(format: "%0.2d", minutes)
         secondsLabel.stringValue = String.init(format: "%0.2d", seconds)
 
+        // uij
+        
+        
     }
     
     func TimerEndAction() {
@@ -167,9 +215,8 @@ extension ViewController{
 
         
         TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.red.cgColor
-        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-            self.TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.black.cgColor
-        }
+
+        self.ChangeTextFiledShadowColor(color: NSColor.clear)
         
         let isPlaySounds = UserDefaults.standard.integer(forKey:UserDefaultIsPlaySounds)
     
@@ -198,9 +245,13 @@ extension ViewController{
             //
         myPopUp.alertStyle = NSAlertStyle.critical
         myPopUp.addButton(withTitle: "OK")
-        //        myPopUp.addButton(withTitle: "Cancel")
-        myPopUp.runModal()
         
+        //        myPopUp.addButton(withTitle: "Cancel")
+        let action = myPopUp.runModal()
+        
+        if action == NSAlertFirstButtonReturn {
+            self.TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.black.cgColor
+        }
 
         
     }
