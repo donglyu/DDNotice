@@ -214,9 +214,10 @@ extension ViewController{
         self.view.wantsLayer = true
 
         
-        TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.red.cgColor
+//        TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.red.cgColor
+        
 
-        self.ChangeTextFiledShadowColor(color: NSColor.clear)
+        self.ChangeTextFiledShadowColor(color: NSColor.red)
         
         let isPlaySounds = UserDefaults.standard.integer(forKey:UserDefaultIsPlaySounds)
     
@@ -250,7 +251,7 @@ extension ViewController{
         let action = myPopUp.runModal()
         
         if action == NSAlertFirstButtonReturn {
-            self.TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.black.cgColor
+            self.ChangeTextFiledShadowColor(color: NSColor.yellow)
         }
 
         
@@ -267,7 +268,7 @@ extension ViewController{
             return
         }
         
-        guard let audioFileUrl = Bundle.main.url(forResource: "优美旋律结尾音效",
+        guard let audioFileUrl = Bundle.main.url(forResource: "夏日午后的农庄内音效",
                                                  withExtension: "wav") else {
                                                     return
         }

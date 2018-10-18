@@ -10,6 +10,7 @@
 		700935CB1E938E47004E3EEA /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 700935CA1E938E47004E3EEA /* ding.mp3 */; };
 		700935CD1E93CBB8004E3EEA /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700935CC1E93CBB8004E3EEA /* PrefsViewController.swift */; };
 		700935CF1E93D53A004E3EEA /* DDConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700935CE1E93D53A004E3EEA /* DDConst.swift */; };
+		702EBD1321778F1C002D0E1C /* 夏日午后的农庄内音效.wav in Resources */ = {isa = PBXBuildFile; fileRef = 702EBD1221778F1C002D0E1C /* 夏日午后的农庄内音效.wav */; };
 		703C213D2132E22F000E0B73 /* 优美旋律结尾音效.wav in Resources */ = {isa = PBXBuildFile; fileRef = 703C213C2132E22F000E0B73 /* 优美旋律结尾音效.wav */; };
 		7071C6B31E7CCE83008FF4F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7071C6B21E7CCE83008FF4F8 /* AppDelegate.swift */; };
 		7071C6B51E7CCE83008FF4F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7071C6B41E7CCE83008FF4F8 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 		700935CA1E938E47004E3EEA /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
 		700935CC1E93CBB8004E3EEA /* PrefsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
 		700935CE1E93D53A004E3EEA /* DDConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDConst.swift; sourceTree = "<group>"; };
+		702EBD1221778F1C002D0E1C /* 夏日午后的农庄内音效.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "夏日午后的农庄内音效.wav"; sourceTree = "<group>"; };
 		703C213C2132E22F000E0B73 /* 优美旋律结尾音效.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "优美旋律结尾音效.wav"; sourceTree = "<group>"; };
 		7071C6AF1E7CCE83008FF4F8 /* Slice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7071C6B21E7CCE83008FF4F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 		700935C91E938E2B004E3EEA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				702EBD1221778F1C002D0E1C /* 夏日午后的农庄内音效.wav */,
 				703C213C2132E22F000E0B73 /* 优美旋律结尾音效.wav */,
 				700935CA1E938E47004E3EEA /* ding.mp3 */,
 			);
@@ -193,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				702EBD1321778F1C002D0E1C /* 夏日午后的农庄内音效.wav in Resources */,
 				703C213D2132E22F000E0B73 /* 优美旋律结尾音效.wav in Resources */,
 				7071C6B71E7CCE83008FF4F8 /* Assets.xcassets in Resources */,
 				7071C6BA1E7CCE83008FF4F8 /* Main.storyboard in Resources */,
