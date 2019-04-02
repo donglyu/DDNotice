@@ -57,7 +57,7 @@ class DDTimer: NSObject {
         
     }
     
-    func updateTime(timer: Timer) {
+    @objc func updateTime(timer: Timer) {
         let remainingTime:CFAbsoluteTime = endTime - CFAbsoluteTimeGetCurrent()
         
         delegate?.updateRemainingTime(remaining: remainingTime)
@@ -106,7 +106,7 @@ class DDTimer: NSObject {
 
 // MARK: Private
 extension DDTimer{
-    func systemActivity()  {
+    @objc func systemActivity()  {
         
     }
     

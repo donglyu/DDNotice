@@ -15,7 +15,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -23,7 +23,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             button.image = NSImage(named: "settings") //  状态栏图标名称
             button.action = #selector(AppDelegate.ClickTopMenuBarItem(sender:))
-//                Selector("printQuote")
             
         }
         
@@ -75,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
-    func ClickTopMenuBarItem(sender:AnyObject){ // AnyObject.
+    @objc func ClickTopMenuBarItem(sender:AnyObject){ // AnyObject.
 //        let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
 //        let quoteAuthor = "Mark Twain"
 //

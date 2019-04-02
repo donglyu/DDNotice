@@ -57,7 +57,8 @@ class ViewController: NSViewController, TimerDelegate {
         secondsLabel.shadow = shadow;
         secondsLabel.wantsLayer = true
         
-        NotificationCenter.default.addObserver(self, selector: #selector(textDidChanged), name: NSNotification.Name.NSTextDidChange , object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChanged), name: NSText.didChangeNotification , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appBecomeActive), name: NSNotification.Name("AppBecomeActive"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appResignActive), name: NSNotification.Name("AppResignActive"), object: nil)
         
@@ -128,7 +129,7 @@ extension ViewController{
 //        TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.clear.cgColor
 //    }
     // MARK: Private
-    func textDidChanged(textfield:NSTextField)  {
+    @objc func textDidChanged(textfield:NSTextField)  {
         if hourLabel.stringValue.count > 2 {
             let index = hourLabel.stringValue.index(hourLabel.stringValue.startIndex, offsetBy: 2)
             let value = hourLabel.stringValue.substring(to: index )
@@ -172,7 +173,7 @@ extension ViewController{
     
     // MARK: Noti
     
-    func appBecomeActive(){
+    @objc func appBecomeActive(){
         self.TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.black.cgColor
         
         if isTimeTick{
@@ -182,7 +183,7 @@ extension ViewController{
         }
     }
     
-    func appResignActive(){
+    @objc func appResignActive(){
         
         if !isTimeTick {
             self.ChangeTextFiledShadowColor(color: NSColor.yellow)
@@ -236,7 +237,7 @@ extension ViewController{
         startBtn.title = "开始"
         isTimeTick = false
         
-        print("show Alert!")
+        print("Show Alert!")
         let myPopUp:NSAlert = NSAlert()
         myPopUp.messageText = "要做的事完成了吗？" //人就像弹簧，适时松一些未尝不好哦。
         let showMsg = UserDefaults.standard.string(forKey: UserDefaultMsgShow) ?? ""
@@ -244,13 +245,13 @@ extension ViewController{
         myPopUp.informativeText = showMsg
         
             //
-        myPopUp.alertStyle = NSAlertStyle.critical
+        myPopUp.alertStyle = NSAlert.Style.critical
         myPopUp.addButton(withTitle: "OK")
         
         //        myPopUp.addButton(withTitle: "Cancel")
         let action = myPopUp.runModal()
         
-        if action == NSAlertFirstButtonReturn {
+        if action == NSApplication.ModalResponse.alertFirstButtonReturn {
             self.ChangeTextFiledShadowColor(color: NSColor.yellow)
         }
 

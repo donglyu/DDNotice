@@ -23,12 +23,12 @@ class PrefsViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        // restore UI
+        // Restore UI
         let isPlaySounds = UserDefaults.standard.bool(forKey: UserDefaultIsPlaySounds)
         if UserDefaults.standard.object(forKey: UserDefaultIsPlaySounds) == nil || isPlaySounds  {
-            isPlaySoundsCheckBtn.state = 1
+            isPlaySoundsCheckBtn.state = NSControl.StateValue(rawValue: 1)
         }else{
-            isPlaySoundsCheckBtn.state = 0
+            isPlaySoundsCheckBtn.state = NSControl.StateValue(rawValue: 0)
         }
         
         
