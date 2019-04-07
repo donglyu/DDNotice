@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		700935CB1E938E47004E3EEA /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 700935CA1E938E47004E3EEA /* ding.mp3 */; };
+		4C84358AC2FD7B575357D7DA /* Pods_Slice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4E54B996B52BF93691787F /* Pods_Slice.framework */; };
 		700935CD1E93CBB8004E3EEA /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700935CC1E93CBB8004E3EEA /* PrefsViewController.swift */; };
 		700935CF1E93D53A004E3EEA /* DDConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700935CE1E93D53A004E3EEA /* DDConst.swift */; };
 		702EBD1321778F1C002D0E1C /* 夏日午后的农庄内音效.wav in Resources */ = {isa = PBXBuildFile; fileRef = 702EBD1221778F1C002D0E1C /* 夏日午后的农庄内音效.wav */; };
 		703C213D2132E22F000E0B73 /* 优美旋律结尾音效.wav in Resources */ = {isa = PBXBuildFile; fileRef = 703C213C2132E22F000E0B73 /* 优美旋律结尾音效.wav */; };
+		70477F5522550204005B58AB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70477F5422550204005B58AB /* Util.swift */; };
+		704A28C122539BE20084D313 /* TimeStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A28C022539BE20084D313 /* TimeStatusView.swift */; };
+		706998312257A8F5004145D5 /* SliceAlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706998302257A8F5004145D5 /* SliceAlertManager.swift */; };
 		7071C6B31E7CCE83008FF4F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7071C6B21E7CCE83008FF4F8 /* AppDelegate.swift */; };
 		7071C6B51E7CCE83008FF4F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7071C6B41E7CCE83008FF4F8 /* ViewController.swift */; };
 		7071C6B71E7CCE83008FF4F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7071C6B61E7CCE83008FF4F8 /* Assets.xcassets */; };
@@ -22,11 +25,14 @@
 /* Begin PBXFileReference section */
 		0D4DEF611EBC686B009047E8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		0DE31DB41E98CC35008665AC /* Relaxing Life.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Relaxing Life.entitlements"; sourceTree = "<group>"; };
-		700935CA1E938E47004E3EEA /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
+		1C9397C058FABCD508B76286 /* Pods-Slice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slice/Pods-Slice.debug.xcconfig"; sourceTree = "<group>"; };
 		700935CC1E93CBB8004E3EEA /* PrefsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
 		700935CE1E93D53A004E3EEA /* DDConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDConst.swift; sourceTree = "<group>"; };
 		702EBD1221778F1C002D0E1C /* 夏日午后的农庄内音效.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "夏日午后的农庄内音效.wav"; sourceTree = "<group>"; };
 		703C213C2132E22F000E0B73 /* 优美旋律结尾音效.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "优美旋律结尾音效.wav"; sourceTree = "<group>"; };
+		70477F5422550204005B58AB /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		704A28C022539BE20084D313 /* TimeStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStatusView.swift; sourceTree = "<group>"; };
+		706998302257A8F5004145D5 /* SliceAlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliceAlertManager.swift; sourceTree = "<group>"; };
 		7071C6AF1E7CCE83008FF4F8 /* Slice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7071C6B21E7CCE83008FF4F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7071C6B41E7CCE83008FF4F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +40,8 @@
 		7071C6B91E7CCE83008FF4F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7071C6BB1E7CCE83008FF4F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		709653561E7EB2250046F735 /* DDTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDTimer.swift; sourceTree = "<group>"; };
+		A2A5A41746BB896185E9F5E7 /* Pods-Slice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slice.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slice/Pods-Slice.release.xcconfig"; sourceTree = "<group>"; };
+		AD4E54B996B52BF93691787F /* Pods_Slice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C84358AC2FD7B575357D7DA /* Pods_Slice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,7 +61,6 @@
 			children = (
 				702EBD1221778F1C002D0E1C /* 夏日午后的农庄内音效.wav */,
 				703C213C2132E22F000E0B73 /* 优美旋律结尾音效.wav */,
-				700935CA1E938E47004E3EEA /* ding.mp3 */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -62,6 +70,8 @@
 			children = (
 				7071C6B11E7CCE83008FF4F8 /* Slice */,
 				7071C6B01E7CCE83008FF4F8 /* Products */,
+				D21E1CC7F1E8A2F2271A1598 /* Pods */,
+				CD7A171D0E6EAED6384721CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +121,7 @@
 		7071C6C31E7CE3DE008FF4F8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				70477F5422550204005B58AB /* Util.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -120,6 +131,7 @@
 			children = (
 				7071C6B41E7CCE83008FF4F8 /* ViewController.swift */,
 				700935CC1E93CBB8004E3EEA /* PrefsViewController.swift */,
+				706998302257A8F5004145D5 /* SliceAlertManager.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -127,8 +139,26 @@
 		7071C6C51E7CE3DE008FF4F8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				704A28C022539BE20084D313 /* TimeStatusView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CD7A171D0E6EAED6384721CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD4E54B996B52BF93691787F /* Pods_Slice.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D21E1CC7F1E8A2F2271A1598 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1C9397C058FABCD508B76286 /* Pods-Slice.debug.xcconfig */,
+				A2A5A41746BB896185E9F5E7 /* Pods-Slice.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7071C6BE1E7CCE83008FF4F8 /* Build configuration list for PBXNativeTarget "Slice" */;
 			buildPhases = (
+				D7859D29169422B703E7900A /* [CP] Check Pods Manifest.lock */,
 				7071C6AB1E7CCE83008FF4F8 /* Sources */,
 				7071C6AC1E7CCE83008FF4F8 /* Frameworks */,
 				7071C6AD1E7CCE83008FF4F8 /* Resources */,
+				715E491077AF1D9A7C05C84F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,11 +233,49 @@
 				703C213D2132E22F000E0B73 /* 优美旋律结尾音效.wav in Resources */,
 				7071C6B71E7CCE83008FF4F8 /* Assets.xcassets in Resources */,
 				7071C6BA1E7CCE83008FF4F8 /* Main.storyboard in Resources */,
-				700935CB1E938E47004E3EEA /* ding.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		715E491077AF1D9A7C05C84F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Slice/Pods-Slice-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slice/Pods-Slice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7859D29169422B703E7900A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Slice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7071C6AB1E7CCE83008FF4F8 /* Sources */ = {
@@ -213,8 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				709653571E7EB2250046F735 /* DDTimer.swift in Sources */,
+				704A28C122539BE20084D313 /* TimeStatusView.swift in Sources */,
 				7071C6B51E7CCE83008FF4F8 /* ViewController.swift in Sources */,
 				7071C6B31E7CCE83008FF4F8 /* AppDelegate.swift in Sources */,
+				70477F5522550204005B58AB /* Util.swift in Sources */,
+				706998312257A8F5004145D5 /* SliceAlertManager.swift in Sources */,
 				700935CD1E93CBB8004E3EEA /* PrefsViewController.swift in Sources */,
 				700935CF1E93D53A004E3EEA /* DDConst.swift in Sources */,
 			);
@@ -284,7 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Relaxing Life";
@@ -337,7 +410,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "Relaxing Life";
 				SDKROOT = macosx;
@@ -347,6 +420,7 @@
 		};
 		7071C6BF1E7CCE83008FF4F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C9397C058FABCD508B76286 /* Pods-Slice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "DDNotice/Relaxing Life.entitlements";
@@ -356,7 +430,7 @@
 				INFOPLIST_FILE = DDNotice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lyds.DDNotice;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Slice;
@@ -368,6 +442,7 @@
 		};
 		7071C6C01E7CCE83008FF4F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2A5A41746BB896185E9F5E7 /* Pods-Slice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "DDNotice/Relaxing Life.entitlements";
@@ -377,7 +452,7 @@
 				INFOPLIST_FILE = DDNotice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lyds.DDNotice;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = Slice;

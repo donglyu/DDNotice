@@ -4,13 +4,13 @@
 //
 //  Created by donglyu on 17/3/18.
 //  Copyright © 2017年 donglyu. All rights reserved.
-//
+//  todo : 监听点击了关闭按钮的事件。
 
 import Cocoa
 import AVFoundation
 import NotificationCenter
 
-class ViewController: NSViewController, TimerDelegate {
+class ViewController: NSViewController {
 
     @IBOutlet var TimingContainerView: NSView!
     @IBOutlet weak var TimingNSBox: NSBox!
@@ -23,7 +23,7 @@ class ViewController: NSViewController, TimerDelegate {
     @IBOutlet weak var startBtn: NSButton!
 
     
-    let timer = DDTimer()
+//    let timer = DDTimer.shared
 
     var soundPlayer : AVAudioPlayer?
 
@@ -38,8 +38,6 @@ class ViewController: NSViewController, TimerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-//        [self.view setWantLayers:YES];
-//        [self.view.layer setBackgroundColor:[[NSColor redColor] CGColor];
         self.view.layer?.backgroundColor = NSColor.black.cgColor
         
         hourLabel.stringValue = "00"
@@ -56,17 +54,22 @@ class ViewController: NSViewController, TimerDelegate {
         minuteLabel.wantsLayer = true
         secondsLabel.shadow = shadow;
         secondsLabel.wantsLayer = true
+        self.view.layer?.borderColor = NSColor.red.cgColor
+        self.view.layer?.borderWidth = 0
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChanged), name: NSText.didChangeNotification , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appBecomeActive), name: NSNotification.Name("AppBecomeActive"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appResignActive), name: NSNotification.Name("AppResignActive"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TimerUpdateNoti), name: NSNotification.Name(NotiTimerUpdate), object: nil)
         
-        timer.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TimerEndAndNoti), name: NSNotification.Name(NotiTimerEndAction), object: nil)
         
         
-        self.view.layer?.borderColor = NSColor.red.cgColor
-        self.view.layer?.borderWidth = 0
+//        DDTimer.shared.delegate = self
+        
+        
     }
     
 
@@ -77,9 +80,11 @@ class ViewController: NSViewController, TimerDelegate {
         // Update the view, if already loaded.
         }
     }
+    
+    // MARK: Main
 
     @IBAction func abortBtnClick(_ sender: Any) {
-        timer.abortSleepTimer()
+        DDTimer.shared.abortSleepTimer()
         // update Label str.
         self.setLabelEditable(editable: true)
         startBtn.title = "开始"
@@ -89,9 +94,12 @@ class ViewController: NSViewController, TimerDelegate {
 
     @IBAction func startBtnClick(_ sender: Any) {
         
+//        self.view.window?.close()
+//        return
+        
         if isTimeTick { // 点击暂停按钮
             startBtn.title = "继续"
-            timer.PauseTimer()
+            DDTimer.shared.PauseTimer()
             isTimeTick = false
             self.ChangeTextFiledShadowColor(color: NSColor.yellow)
             self.view.layer?.borderWidth = 2
@@ -108,13 +116,21 @@ class ViewController: NSViewController, TimerDelegate {
             let timeInterval = ((hour*3600)+(minute*60)+seconds)
             if timeInterval > 0 {
                 self.setLabelEditable(editable: false)
-                timer .runSleepTimer(seconds: NSNumber(value: timeInterval))
+                DDTimer.shared .runSleepTimer(seconds: NSNumber(value: timeInterval))
             }
         
             isTimeTick = true
-            
-            
             self.view.layer?.borderWidth = 0
+            
+            
+            let isTimeStatusMode = UserDefaults.standard.bool(forKey: UserDefaultSwitchShowStatusTimeView)
+            if UserDefaults.standard.object(forKey: UserDefaultSwitchShowStatusTimeView) == nil || isTimeStatusMode  {
+                self.view.window?.close()
+            }else{
+                
+            }
+            
+            
         }
         
         
@@ -171,7 +187,7 @@ extension ViewController{
         self.secondsLabel.shadow = self.shadow
     }
     
-    // MARK: Noti
+    // MARK: - ---Noti
     
     @objc func appBecomeActive(){
         self.TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.black.cgColor
@@ -191,78 +207,107 @@ extension ViewController{
         
     }
     
-    // MARK: Delegate
-    func updateRemainingTime(remaining: CFAbsoluteTime) {
+    
+    @objc func TimerUpdateNoti(objc:Notification){
+        
+        let remaining = objc.object as! CFAbsoluteTime
+        
         let hours = Int.init(remaining/3600)
         let temp = remaining.truncatingRemainder(dividingBy: 3600)
         let minutes =  Int.init(temp/60)
         let seconds = Int.init(remaining.truncatingRemainder(dividingBy: 60)) //%60
-   
         
-//        print("hours: \(hours) ,minutes: \(minutes),seconds: \(seconds)")
+        
+        //        print("hours: \(hours) ,minutes: \(minutes),seconds: \(seconds)")
         
         hourLabel.stringValue = String.init(format: "%0.2d", hours)
         minuteLabel.stringValue = String.init(format: "%0.2d", minutes)
         secondsLabel.stringValue = String.init(format: "%0.2d", seconds)
 
-        // uij
-        
         
     }
     
-    func TimerEndAction() {
+    @objc func TimerEndAndNoti(){
+        
         setLabelEditable(editable: true)
         self.view.wantsLayer = true
-
         
-//        TimingFieldBoxContainerView.layer?.backgroundColor = NSColor.red.cgColor
-        
-
         self.ChangeTextFiledShadowColor(color: NSColor.red)
         
         let isPlaySounds = UserDefaults.standard.integer(forKey:UserDefaultIsPlaySounds)
-    
+        
         if isPlaySounds == 1 || UserDefaults.standard.object(forKey: UserDefaultIsPlaySounds) == nil {
             self.prepareSound()
             self.playSound()
         }
-        
-        
-        // MARK: Notification
-        
-//        let noti = NSNotification.init(name: NSNotification.Name(rawValue: "notiName"), object: nil)
-//        NSNotification.init
-//        // Notification End
-        
         startBtn.title = "开始"
         isTimeTick = false
         
-        print("Show Alert!")
-        let myPopUp:NSAlert = NSAlert()
-        myPopUp.messageText = "要做的事完成了吗？" //人就像弹簧，适时松一些未尝不好哦。
-        let showMsg = UserDefaults.standard.string(forKey: UserDefaultMsgShow) ?? ""
-    
-        myPopUp.informativeText = showMsg
         
-            //
-        myPopUp.alertStyle = NSAlert.Style.critical
-        myPopUp.addButton(withTitle: "OK")
-        
-        //        myPopUp.addButton(withTitle: "Cancel")
-        let action = myPopUp.runModal()
+        let action = SliceAlertManager.sharedManager.PopNormalAlertNoticeView()
         
         if action == NSApplication.ModalResponse.alertFirstButtonReturn {
             self.ChangeTextFiledShadowColor(color: NSColor.yellow)
         }
-
-        
     }
+    
+    // MARK: - Timer Delegate
+//    func updateRemainingTime(remaining: CFAbsoluteTime) {
+//        let hours = Int.init(remaining/3600)
+//        let temp = remaining.truncatingRemainder(dividingBy: 3600)
+//        let minutes =  Int.init(temp/60)
+//        let seconds = Int.init(remaining.truncatingRemainder(dividingBy: 60)) //%60
+//
+//
+////        print("hours: \(hours) ,minutes: \(minutes),seconds: \(seconds)")
+//
+//        hourLabel.stringValue = String.init(format: "%0.2d", hours)
+//        minuteLabel.stringValue = String.init(format: "%0.2d", minutes)
+//        secondsLabel.stringValue = String.init(format: "%0.2d", seconds)
+//
+//        // uij
+//    }
+    
+//
+//    func TimerEndAction() {
+//        setLabelEditable(editable: true)
+//        self.view.wantsLayer = true
+//
+//        self.ChangeTextFiledShadowColor(color: NSColor.red)
+//
+//        let isPlaySounds = UserDefaults.standard.integer(forKey:UserDefaultIsPlaySounds)
+//
+//        if isPlaySounds == 1 || UserDefaults.standard.object(forKey: UserDefaultIsPlaySounds) == nil {
+//            self.prepareSound()
+//            self.playSound()
+//        }
+//
+//
+//        // MARK: Notification
+//
+////        let noti = NSNotification.init(name: NSNotification.Name(rawValue: "notiName"), object: nil)
+////        NSNotification.init
+////        // Notification End
+//
+//        startBtn.title = "开始"
+//        isTimeTick = false
+//
+//
+//        let action = SliceAlertManager.sharedManager.PopNormalAlertNoticeView()
+//
+//        if action == NSApplication.ModalResponse.alertFirstButtonReturn {
+//            self.ChangeTextFiledShadowColor(color: NSColor.yellow)
+//        }
+//
+//
+//    }
 
 
 }
 
-// MARK: Private Method!
 extension ViewController{
+    // MARK: - --Music About!
+    
     func prepareSound() {
         
         if soundPlayer != nil {

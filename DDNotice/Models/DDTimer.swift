@@ -9,21 +9,36 @@
 import Cocoa
 
 protocol TimerDelegate :NSObjectProtocol{ // 不写NSObjectProtocol 暂时不会报错, 但是写属性是无法写weak
+
+    /// Timer update 回调方法
+    ///
+    /// - Parameter remaining: 剩余秒速
     func updateRemainingTime(remaining:CFAbsoluteTime)
+    
+    /// Timer结束方法
     func TimerEndAction()
 }
 
 
 class DDTimer: NSObject {
 
+    static let shared = DDTimer()
+    
     
     var activityTimer:Timer?
-    
     var sleepTimer:Timer?
     
     var endTime:CFAbsoluteTime = 0.0
     
+    // 当前timer是否处于生效中。
+    public var isMainTimeInEffect = false
+    
     weak var delegate:TimerDelegate?
+    
+    
+    override init() {
+        super.init()
+    }
     
     
     func runSleepTimer(seconds:NSNumber) {
@@ -54,20 +69,22 @@ class DDTimer: NSObject {
         
         delegate?.updateRemainingTime(remaining: 0.0)
         
-        
+        isMainTimeInEffect = false
     }
     
     @objc func updateTime(timer: Timer) {
         let remainingTime:CFAbsoluteTime = endTime - CFAbsoluteTimeGetCurrent()
         
+        // TODO:通知
         delegate?.updateRemainingTime(remaining: remainingTime)
         
 //        print("DDTimer's updateTime \(remainingTime)")
+        NotificationCenter.default.post(name: NSNotification.Name(NotiTimerUpdate), object: remainingTime)
+        
 
-        if remainingTime<0{
+        if remainingTime < 0{
             self.abortSleepTimer()
-            
-            // 执行要做的操作.....// 睡眠还是直接弹出提醒!
+            // 执行要做的操作. ShowAlert
             self.showAlert()
         }
         
@@ -75,7 +92,7 @@ class DDTimer: NSObject {
     
     func showAlert()  {
 
-        
+        NotificationCenter.default.post(name: NSNotification.Name(NotiTimerEndAction), object: nil)
         // call delegate method!
         delegate?.TimerEndAction()
         

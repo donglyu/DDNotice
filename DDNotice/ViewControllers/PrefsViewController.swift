@@ -12,10 +12,12 @@ class PrefsViewController: NSViewController {
 
     
     @IBOutlet weak var isPlaySoundsCheckBtn: NSButton!
+    @IBOutlet weak var switchStatusBarTimeBtn: NSButton!
     
+    
+    
+    // notice words
     @IBOutlet var msgView: NSTextView!
-    
-
     @IBOutlet weak var tipForShowConfirmOK: NSTextField!
     
     
@@ -32,12 +34,21 @@ class PrefsViewController: NSViewController {
         }
         
         
+        let isShowStaturBarTimeView = UserDefaults.standard.bool(forKey: UserDefaultSwitchShowStatusTimeView)
+        if isShowStaturBarTimeView {
+            switchStatusBarTimeBtn.state = NSControl.StateValue(rawValue: 1)
+        }else{
+            switchStatusBarTimeBtn.state = NSControl.StateValue(rawValue: 0)
+        }
+        
+        
+        
         let showMsg = UserDefaults.standard.string(forKey: UserDefaultMsgShow)
         
         if showMsg != nil {
-            msgView.insertText(showMsg ?? "继续下一个项目咯！", replacementRange: NSRange.init(location: 0, length: 0))
+            msgView.insertText(showMsg ?? "继续加油！努力努力再努力~", replacementRange: NSRange.init(location: 0, length: 0))
         }else{
-            msgView.insertText("继续下一个项目咯！", replacementRange: NSRange.init(location: 0, length: 0))
+            msgView.insertText("继续加油！努力努力再努力~", replacementRange: NSRange.init(location: 0, length: 0))
             
         }
         
@@ -61,6 +72,20 @@ class PrefsViewController: NSViewController {
         UserDefaults.standard.synchronize()
     }
     
+    
+    @IBAction func switchStatusTimeClick(_ sender: NSButton) {
+        
+        UserDefaults.standard.set(sender.state, forKey: UserDefaultSwitchShowStatusTimeView)
+        UserDefaults.standard.synchronize()
+        
+        // Others.
+        
+        
+        NotificationCenter.default.post(name: NSNotification.Name(NotiOpenPanelTimeViewMode), object: sender.state)
+        
+        
+        
+    }
     
     @IBAction func msgConfirmBtnClick(_ sender: Any) {
         

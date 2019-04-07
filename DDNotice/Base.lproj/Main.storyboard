@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -120,13 +119,12 @@
         <scene sceneID="5jJ-3o-jkZ">
             <objects>
                 <windowController id="VGV-Fa-kOm" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="xEX-Cd-VgR">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="xEX-Cd-VgR">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="294" y="313" width="480" height="194"/>
+                        <rect key="contentRect" x="294" y="313" width="480" height="300"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
                         <value key="minSize" type="size" width="480" height="194"/>
-                        <value key="maxSize" type="size" width="480" height="194"/>
                         <connections>
                             <outlet property="delegate" destination="VGV-Fa-kOm" id="Fss-fB-UH0"/>
                         </connections>
@@ -137,18 +135,18 @@
                 </windowController>
                 <customObject id="aP9-Yk-P17" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="231" y="-151"/>
+            <point key="canvasLocation" x="231" y="-98"/>
         </scene>
         <!--Preference-->
         <scene sceneID="f4S-1Z-0xD">
             <objects>
                 <viewController title="Preference" id="gPP-cE-lRW" customClass="PrefsViewController" customModule="Slice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" toolTip="偏好" id="qvG-Q1-Gsf">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="303"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HIo-1Q-Y4n">
-                                <rect key="frame" x="18" y="158" width="393" height="18"/>
+                                <rect key="frame" x="18" y="267" width="393" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Play end sounds." bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dfR-Hm-mlm">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -159,35 +157,26 @@
                                 </connections>
                             </button>
                             <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="JWB-JG-c39">
-                                <rect key="frame" x="20" y="143" width="440" height="5"/>
+                                <rect key="frame" x="20" y="133" width="440" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pPh-uu-eE4">
-                                <rect key="frame" x="16" y="119" width="145" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Customize notice words" id="Kaa-nY-vFa">
-                                    <font key="font" size="12" name=".PingFangSC-Regular"/>
-                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="if2-ys-ybH">
                                 <rect key="frame" x="18" y="20" width="376" height="91"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <clipView key="contentView" ambiguous="YES" id="KEP-B2-ZnQ">
+                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="KEP-B2-ZnQ">
                                     <rect key="frame" x="1" y="1" width="359" height="89"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Xzb-eO-mir">
                                             <rect key="frame" x="0.0" y="0.0" width="359" height="89"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="359" height="89"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="M49-9g-BJ7">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
@@ -199,7 +188,7 @@
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gx-aQ-ehh">
-                                <rect key="frame" x="396" y="13" width="85" height="32"/>
+                                <rect key="frame" x="396" y="83" width="85" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Comfirm" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7U2-ky-IqU">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -210,11 +199,31 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AuI-s4-sos">
-                                <rect key="frame" x="418" y="38" width="52" height="19"/>
+                                <rect key="frame" x="418" y="147" width="52" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="应用成功" id="gXB-6f-f04">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" red="0.69803921568627447" green="0.84313725490196079" blue="1" alpha="0.0" colorSpace="deviceRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghj-o4-WgL">
+                                <rect key="frame" x="18" y="225" width="228" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Switch StaturBar Time Field Mode" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="KXr-bG-DLJ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="switchStatusTimeClick:" target="gPP-cE-lRW" id="5Iy-5F-tGf"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pPh-uu-eE4">
+                                <rect key="frame" x="16" y="112" width="145" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Customize notice words" id="Kaa-nY-vFa">
+                                    <font key="font" size="12" name=".PingFangSC-Regular"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -223,18 +232,19 @@
                     <connections>
                         <outlet property="isPlaySoundsCheckBtn" destination="HIo-1Q-Y4n" id="6aQ-sJ-DCs"/>
                         <outlet property="msgView" destination="Xzb-eO-mir" id="L9z-cX-je6"/>
+                        <outlet property="switchStatusBarTimeBtn" destination="ghj-o4-WgL" id="GKv-68-IDU"/>
                         <outlet property="tipForShowConfirmOK" destination="AuI-s4-sos" id="WEj-xF-GXF"/>
                     </connections>
                 </viewController>
                 <customObject id="6q4-kM-2IG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="223" y="393"/>
+            <point key="canvasLocation" x="231" y="332"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController storyboardIdentifier="TimeFiled" id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Slice" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="NSPanel">
+                    <window key="window" title="Slice" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="NSPanel">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
                         <windowPositionMask key="initialPositionMask" rightStrut="YES" topStrut="YES"/>
                         <rect key="contentRect" x="1516" y="953" width="164" height="74"/>

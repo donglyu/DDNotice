@@ -15,25 +15,49 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    // 1.NSStatusItem
+//    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
+    
+    var statusItem:NSStatusItem!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-    
-        if let button = statusItem.button {
-            button.image = NSImage(named: "settings") //  状态栏图标名称
-            button.action = #selector(AppDelegate.ClickTopMenuBarItem(sender:))
+
+        // 1.
+//        if let button = statusItem.button {
+//            button.image = NSImage(named: "settings") //  状态栏图标名称
+//            button.action = #selector(AppDelegate.ClickTopMenuBarItem(sender:))
+//        }
+        
+        
+        // 2.
+       let isShowStaturBarTimeView = UserDefaults.standard.bool(forKey: UserDefaultSwitchShowStatusTimeView)
+        
+        if isShowStaturBarTimeView{
+            let statusBar = NSStatusBar.system
+            statusItem = statusBar.statusItem(withLength: NSStatusItem.variableLength) // 需要动态宽度的对象
+            // 然后需要一个自定义view
+            let timeStatusView = self.CreateTimeStaturView()
+            statusItem.view = timeStatusView
             
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ReceiveNotiOpenStatusTimemMode), name: NSNotification.Name(NotiOpenPanelTimeViewMode), object: nil)
         
     }
 
     func applicationWillTerminate(_ aNotification: Notification) { // 终止
         // Insert code here to tear down your application
         
+        // 退出应用时，需要删掉。
+        let statusBar = NSStatusBar.system
+        //删除item
+        statusBar.removeStatusItem(self.statusItem)
+        
         
     }
-    // hud 点击关闭 调用
+    // hud 点击关闭 调用。:主窗口关闭时退出Cocoa应用程序
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
 
         /*
@@ -105,6 +129,45 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
 //            wordCountViewController.make
         }
+    }
+  
+    
+    @objc func ReceiveNotiOpenStatusTimemMode(objc: NSNotification){
+        
+        print("\(objc.object ?? "")")
+        
+         let value = objc.object as! Int
+        
+       
+        
+        if value == 1 {
+            
+                
+                statusItem.view = self.CreateTimeStaturView()
+ 
+//                statusItem.view = self.CreateTimeStaturView()
+            
+        }else{
+            statusItem.view = nil
+        }
+        
+    
+        
+        
+        
+        
+        
+    }
+    
+    func CreateTimeStaturView()->TimeStatusView{
+        
+        let timeStatusView = TimeStatusView.init(frame: NSRect.init(x: 0, y: 0, width: 90, height: 22));
+        return timeStatusView
+    }
+    
+    deinit {
+        
+        NotificationCenter.default.removeObserver(self)
     }
 
 }
